@@ -17,8 +17,8 @@ A simple keylogger tool developed in Java. This tool captures keystrokes and log
 
 ## Developers
 
- - [Syed Aarish Shah](https://www.linkedin.com/in/syed-aarish-shah-6a4811249/)
  - [Khushboo Hamid](https://www.linkedin.com/in/khushboo-hamid-709967224/)
+ - [Syed Aarish Shah](https://www.linkedin.com/in/syed-aarish-shah-6a4811249/)
 
 ## Contribution
 
