@@ -1,29 +1,38 @@
-# Keylogger Tool
+# Keylogger Tool in Java
 
-A simple keylogger tool developed in Java. This tool captures keystrokes and logs them to a file.
+This Java-based keylogger tool is designed to capture and log keystrokes, offering insights into keyboard activity.
 
-> **Disclaimer**: This tool is intended for educational and ethical purposes only. Unauthorized use of keyloggers is illegal and unethical. Always seek permission before monitoring any device. The developer is not responsible for any misuse of this tool.
+> 🚨 **Disclaimer**: This keylogger tool is developed solely for educational and ethical purposes. Unauthorized use or deployment of keyloggers for surreptitious or malicious activities is both illegal and unethical. Before deploying this tool, always obtain explicit permission from the owner of the device being monitored. The developers will not be held responsible for misuse.
 
-## Features
+## 🚀 Features
 
-- Logs keystrokes to a time-stamped file.
-- Detects and logs key combinations like "***Alt*** + ***Tab***" and "***Win*** + ***Tab***".
-- Saves logs to a dedicated directory.
+- 📝 Logs each keystroke to a file, with each entry timestamped for convenience.
+- 🖥️ Detects and logs the title of the currently active window in the operating system.
+- 🎯 Identifies and records commonly used key combinations, e.g., ***Alt*** + ***Tab*** or ***Win*** + ***Tab***.
+- 📁 Organizes logs neatly in a dedicated directory for easy retrieval.
 
-## Prerequisites
+## 📌 Prerequisites
 
-- Java Development Kit (JDK)
-- [JNativeHook library](https://github.com/kwhat/jnativehook)
+Before running this tool, ensure you have:
 
-## Developers
+- The Java Development Kit (JDK) installed.
+- The [JNativeHook library](https://github.com/kwhat/jnativehook), essential for capturing native input.
 
- - [Khushboo Hamid](https://www.linkedin.com/in/khushboo-hamid-709967224/)
- - [Syed Aarish Shah](https://www.linkedin.com/in/syed-aarish-shah-6a4811249/)
+## 👩‍💻 Developers
 
-## Contribution
+- [Khushboo Hamid](https://www.linkedin.com/in/khushboo-hamid-709967224/) - Lead Developer and Project Architect.
+- [Syed Aarish Shah](https://www.linkedin.com/in/syed-aarish-shah-6a4811249/) - Core Contributor and Debugger.
 
-Feel free to fork this project, make changes according to your needs, and open pull requests. All contributions are welcome.
+## 🤝 Contribution
 
-## License
+We welcome contributors to our project!
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://opensource.org/license/mit/) file for details.
+1. **Fork** the repository.
+2. Create your **Feature Branch** (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. **Push** to the branch (`git push origin feature/AmazingFeature`).
+5. Open a **Pull Request**.
+
+## 📜 License
+
+This project is licensed under the MIT License. For more details, please refer to the [LICENSE.md](https://opensource.org/license/mit/) file.
