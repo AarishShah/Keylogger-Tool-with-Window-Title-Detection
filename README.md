@@ -1,4 +1,4 @@
-# Keylogger Tool in Java
+# Keylogger Tool with Window Title Detection (Java)
 
 This Java-based keylogger tool is designed to capture and log keystrokes, offering insights into keyboard activity.
 
