@@ -20,8 +20,8 @@ Before running this tool, ensure you have:
 
 ## 👩‍💻 Developers
 
-- [Khushboo Hamid](https://www.linkedin.com/in/khushboo-hamid-709967224/) - Lead Developer and Project Architect.
-- [Syed Aarish Shah](https://www.linkedin.com/in/syed-aarish-shah-6a4811249/) - Core Contributor and Debugger.
+- [Khushboo Hamid](https://www.linkedin.com/in/khushboo-hamid-709967224/) - Core Developer.
+- [Syed Aarish Shah](https://www.linkedin.com/in/syed-aarish-shah-6a4811249/) - Lead Developer and Debugger.
 
 ## 🤝 Contribution
 
