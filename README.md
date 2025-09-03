@@ -1,8 +1,8 @@
-# Keylogger Tool with Window Title Detection (Java)
+# System Event Monitor for Security Research (Java)
 
-This Java-based keylogger tool is designed to capture and log keystrokes, offering insights into keyboard activity.
+This Java-based System Event Monitor is designed for security research to capture and log keystrokes, offering insights into keyboard activity
 
-> 🚨 **Disclaimer**: This keylogger tool is developed solely for educational and ethical purposes. Unauthorized use or deployment of keyloggers for surreptitious or malicious activities is both illegal and unethical. Before deploying this tool, always obtain explicit permission from the owner of the device being monitored. The developers will not be held responsible for misuse.
+> 🚨 **Disclaimer**: This System Event Monitor is developed solely for educational and ethical purposes. Unauthorized use or deployment of System Event Monitors for surreptitious or malicious activities is both illegal and unethical. Before deploying this tool, always obtain explicit permission from the owner of the device being monitored. The developers will not be held responsible for misuse.
 
 ## 🚀 Features
 
